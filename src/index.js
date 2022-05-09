@@ -39,4 +39,40 @@ const siteContent = { // DO NOT CHANGE THIS OBJECT
   },
 };
 
+(() => {
+  const navNodes = document.querySelectorAll('nav a');
+  const logoImg = document.querySelector('#logo-img');
+  const ctaImg = document.querySelector('#cta-img');
+  const accentImg = document.querySelector('#middle-img');
+  const heading = document.querySelector('.cta-text h1');
+  const headingButt = document.querySelector('.cta-text button');
+  const contentHeading = document.querySelectorAll('.text-content h4');
+  const contentPara = document.querySelectorAll('.text-content p');
+  const mainContent = ['features-h4', 'about-h4', 'services-h4', 'product-h4', 'vision-h4'];
+  const mainPara = ['features-content', 'about-content', 'services-content', 'product-content', 'vision-content']
+  const copyright = document.querySelector('footer a');
+  const contactH4 = document.querySelector('.contact h4');
+  const contactPara = document.querySelectorAll('.contact p');
+  const contactContents = ['address', 'phone', 'email'];
+  for(let i = 0; i < contactPara.length; i++){
+    contactPara[i].textContent = siteContent['contact'][contactContents[i]]
+  }
+  for(let i = 0; i < mainContent.length; i++){
+    contentHeading[i].textContent = siteContent['main-content'][mainContent[i]];
+    contentPara[i].textContent = siteContent['main-content'][mainPara[i]];
+  }
+  for(let i = 0; i < navNodes.length; i++){
+    navNodes[i].textContent = siteContent['nav'][`nav-item-${i + 1}`];
+    navNodes[i].classList.add('italic');
+  };
+  heading.textContent = siteContent.cta.h1;
+  headingButt.textContent = siteContent.cta.button;
+  copyright.textContent = siteContent.footer.copyright;
+  contactH4.textContent = siteContent.contact['contact-h4'];
+  logoImg['src'] = siteContent['images']['logo-img'];
+  ctaImg['src'] = siteContent['images']['cta-img'];
+  accentImg['src'] = siteContent['images']['accent-img'];
+  copyright.classList.add('bold');
+})()
+
 console.log('project wired!')
